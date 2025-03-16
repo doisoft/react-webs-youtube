@@ -39,9 +39,9 @@
 - git을 사용하여 파일을 관리합니다.
 
 ## git 명령어
-`git init`
-`git add README.md`
-`git commit -m "first commit"`
-`git branch -M main`
-`git remote add origin https://github.com/doisoft/react-webs-youtube.git`
-`git push -u origin main`
+- `git init`
+- `git add README.md`
+- `git commit -m "first commit"`
+- `git branch -M main`
+- `git remote add origin https://github.com/doisoft/react-webs-youtube.git`
+- `git push -u origin main`
