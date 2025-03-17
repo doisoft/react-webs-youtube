@@ -13,3 +13,5 @@ export const Logo = () => {
     </h1>
   );
 };
+
+export default Logo

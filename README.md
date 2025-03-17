@@ -45,3 +45,6 @@
 - `git branch -M main`
 - `git remote add origin https://github.com/doisoft/react-webs-youtube.git`
 - `git push -u origin main`
+
+## 오류 문제
+- react 19버전에서 react-helmet-async 호환성 문제 발생으로 react 18.3.1 버전 사용 : `npm install react@18.3.1 react-dom@18.3.1`

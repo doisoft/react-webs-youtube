@@ -1,8 +1,11 @@
 import React from 'react'
+import Main from '../components/section/Main'
 
-function Today() {
+const Today = () => {
   return (
-    <div>Today</div>
+    <Main  title="추천 영상" description="추천 영상 페이지입니다.">
+      Today
+    </Main>
   )
 }
 

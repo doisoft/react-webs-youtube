@@ -1,8 +1,11 @@
 import React from 'react'
+import Main from '../components/section/Main'
 
-function Developer() {
+const Developer = () => {
   return (
-    <div>Developer</div>
+    <Main  title="추천 개발자" description="추천 개발자 페이지입니다.">
+      Developer
+    </Main>
   )
 }
 

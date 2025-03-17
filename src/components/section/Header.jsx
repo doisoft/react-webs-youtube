@@ -4,8 +4,7 @@ import { Logo } from "../header/Logo";
 import { Menu } from "../header/Menu";
 import { Sns } from "../header/Sns";
 
-function Header() {
-  
+const Header = () => {
   return (
     <header id="header" role="banner">
       <Logo />
@@ -13,7 +12,8 @@ function Header() {
       <Sns />
       
     </header>
-  );
+  )
 }
 
 export default Header;
+

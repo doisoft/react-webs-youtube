@@ -23,3 +23,5 @@ export const Sns = () => {
     </div>
   );
 };
+
+export default Sns

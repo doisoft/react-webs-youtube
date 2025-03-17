@@ -1,8 +1,11 @@
 import React from 'react'
+import Main from '../components/section/Main'
 
-function Port() {
+const Port = () => {
   return (
-    <div>Port</div>
+    <Main title="포트폴리오" description="포트폴리오 페이지입니다..">
+      Port
+    </Main>
   )
 }
 

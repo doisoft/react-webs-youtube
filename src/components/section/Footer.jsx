@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
-function Footer() {
+const Footer = () => {
   return (
     <footer id="footer" role="contentinfo">
       Footer
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer
