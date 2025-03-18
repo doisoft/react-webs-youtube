@@ -14,7 +14,7 @@ const VideoSlider = ({ videos, title, id }) => {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
-        }, 500);
+        }, 100);
     }, []);
 
     const youtubeClass = loading ? 'isLoading' : 'isloaded'
