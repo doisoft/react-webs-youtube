@@ -1,23 +1,40 @@
-import React from "react";
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Search = () => {
-  return (
-    <div id="search">
-      <div className="search__inner">
-        <label htmlFor="searchInput">
-          <span className="ir">검색</span>
-        </label>
-        <input
-          type="search"
-          name="searchInput"
-          id="searchInput"
-          autoComplete="off"
-          className="search__input"
-          placeholder="검색어를 입력해주세요."
-        />
-      </div>
-    </div>
-  );
-};
+    const [searchKeyword, setSearchKeyword] = useState('');
+    const navigate = useNavigate();
 
-export default Search;
+    const handleSearch = () => {
+        if (searchKeyword) {
+            navigate(`/search/${searchKeyword}`);
+            setSearchKeyword('');
+        }
+    }
+
+    return (
+        <div id='search'>
+            <div className='search__inner'>
+                <label htmlFor='searchInput'>
+                    <span className='ir'>검색</span>
+                </label>
+                <input
+                    type='search'
+                    name='searchInput'
+                    id='searchInput'
+                    autoComplete='off'
+                    className='search__input'
+                    placeholder='검색어를 입력해주세요.'
+                    onChange={e => setSearchKeyword(e.target.value)}
+                    onKeyDown={e => {
+                        if (e.key === 'Enter') {
+                            handleSearch();
+                        }
+                    }}
+                />
+            </div>
+        </div>
+    )
+}
+
+export default Search

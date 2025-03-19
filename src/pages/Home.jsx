@@ -52,11 +52,6 @@ const Home = () => {
                 title='🥶 지금 이 코딩을 영상으로'
                 id='youtube'
             />
-            {/* <Webd />
-      <Website />
-      <Gsap />
-      <Portfolio />
-      <Youtube /> */}
         </Main>
     )
 }
