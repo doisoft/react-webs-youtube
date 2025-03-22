@@ -17,7 +17,7 @@ const Search = () => {
     },[searchId])
 
     const fetchVideos = (query, pageToken = '') => {
-        fetchFromAPI(`search?q=${query}&pageToken=${pageToken}`)
+        fetchFromAPI(`search?q=${query}&part=snippet&type=video&pageToken=${pageToken}`)
             .then((data) => {
                 setNextPageToken(data.nextPageToken);
                 setVideos((prevVideos) => [...prevVideos, ...data.items]);
