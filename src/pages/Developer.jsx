@@ -22,12 +22,12 @@ const Developer = () => {
                         return (
                             <div className='developer' key={key}>
                                 <div className='developer__img play__icon'>
-                                    <Link to={`/channel/${dev.channelAddress}`}>
+                                    <Link to={`/channel/${dev.channelId}`}>
                                         <img src={dev.img} alt={dev.name} />
                                     </Link>
                                 </div>
                                 <div className='developer__info'>
-                                    <Link to={`/channel/${dev.channelAddress}`}>
+                                    <Link to={`/channel/${dev.channelId}`}>
                                         {dev.name}
                                     </Link>
                                 </div>
