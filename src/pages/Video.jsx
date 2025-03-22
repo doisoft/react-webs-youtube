@@ -5,6 +5,10 @@ import { Link, useParams } from 'react-router-dom'
 import ReactPlayer from 'react-player'
 import { fetchFromAPI } from '../utils/api'
 
+import { CiChat1 } from "react-icons/ci";
+import { CiStar } from "react-icons/ci";
+import { CiRead } from "react-icons/ci";
+
 const Video = () => {
     const { videoId } = useParams()
     const [videoDetail, setVideoDetail] = useState(null)
@@ -28,7 +32,7 @@ const Video = () => {
                             <ReactPlayer
                                 playing={true}
                                 url={`http://www.youtube.com/watch?v=${videoId}`}
-                                witdh='100%'
+                                width='100%'
                                 height='100%'
                                 style={{position: 'absolute', top: 0, left: 0}}
                             />
@@ -42,9 +46,9 @@ const Video = () => {
                                     <Link id='/channel'>{videoDetail.snippet.channelTitle}</Link>
                                 </div>
                                 <div className='count'>
-                                    <span className='view'>ciread{videoDetail.statistics.viewCount}</span>
-                                    <span className='like'>cistar{videoDetail.statistics.likeCount}</span>
-                                    <span className='comment'>cichat{videoDetail.statistics.commentCount}</span>
+                                    <span className='view'><CiRead /> {videoDetail.statistics.viewCount}</span>
+                                    <span className='like'><CiStar /> {videoDetail.statistics.likeCount}</span>
+                                    <span className='comment'><CiChat1 />{videoDetail.statistics.commentCount}</span>
                                 </div>
                             </div>
                             <div className='video__desc'>
