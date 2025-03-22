@@ -1,54 +1,58 @@
 import React, { useEffect, useState } from 'react'
 import Main from '../components/section/Main'
 import { todayText } from '../data/today'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import ReactPlayer from 'react-player'
+import { fetchFromAPI } from '../utils/api'
 
 const Video = () => {
-    const [loading, setLoading] = useState(true)
+    const { videoId } = useParams()
+    const [videoDetail, setVideoDetail] = useState(null)
 
     useEffect(() => {
-        setTimeout(() => {
-            setLoading(false)
-        }, 100)
-    }, [])
-
-    const videoPageClass = loading ? 'isLoading' : 'isLoaded'
+        fetchFromAPI(`videos?part=snippet,statistics&id=${videoId}`)
+        .then((data) => {
+                console.log(data)
+                setVideoDetail(data.items[0])
+            });
+    }, [videoId])
 
     return (
-        <Main title='추천 영상' description='오늘의 추천 유튜브 영상입니다.'>
-            <section id='todayPage' className={videoPageClass}>
-                <h2>오늘의 추천 영상입니다.</h2>
-                {todayText.map((today, key) => (
-                    <div className='today__inner'>
-                        <div className='today__thumb play__icon'>
-                            <Link to={today.page}>
-                                <img
-                                    src={today.img}
-                                    alt={today.title}
-                                />
-                            </Link>
+        <Main
+            title='유튜브 비디오 영상'
+            description='유튜브 비디오 영상을 볼 수 있습니다.'>
+            <section id='videoViewPage'>
+                {videoDetail && (
+                    <div className='video__view'>
+                        <div className='video__play'>
+                            <ReactPlayer
+                                playing={true}
+                                url={`http://www.youtube.com/watch?v=${videoId}`}
+                                witdh='100%'
+                                height='100%'
+                                style={{position: 'absolute', top: 0, left: 0}}
+                            />
                         </div>
-
-                        <div className='today__text'>
-                            <span className='today'>today!</span>
-                            <h3 className='title'>
-                                <Link to={today.page}>
-                                    {today.title}
-                                </Link>
-                            </h3>
-                            <p className='desc'>{today.desc}</p>
-                            <div className='info'>
-                                <span className='author'>
-                                    <Link
-                                        to={`/channel/${today.channelId}`}>
-                                        {today.author}
-                                    </Link>
-                                </span>
-                                <span className='date'>{today.date}</span>
+                        <div className='video__info'>
+                            <h2 className='video__title'>
+                                {videoDetail.snippet.title}
+                            </h2>
+                            <div className='video__channel'>
+                                <div className='id'>
+                                    <Link id='/channel'>{videoDetail.snippet.channelTitle}</Link>
+                                </div>
+                                <div className='count'>
+                                    <span className='view'>ciread{videoDetail.statistics.viewCount}</span>
+                                    <span className='like'>cistar{videoDetail.statistics.likeCount}</span>
+                                    <span className='comment'>cichat{videoDetail.statistics.commentCount}</span>
+                                </div>
+                            </div>
+                            <div className='video__desc'>
+                                {videoDetail.snippet.description}
                             </div>
                         </div>
                     </div>
-                ))}
+                )}
             </section>
         </Main>
     )

@@ -103,8 +103,8 @@
         margin-top: 80px;
     }
 }
-.video__view {
 
+.video__view {
     .video__play {
         width: 100%;
         padding-bottom: 56.2%;
@@ -118,7 +118,7 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 40px;
-            background-color: var(--black100);
+            background-color: #111;
             padding: 10px 30px;
             border-radius: 40px;
 
@@ -127,7 +127,6 @@
             }
 
             .count {
-
                 span {
                     border-radius: 40px;
                     font-size: 14px;
@@ -145,7 +144,7 @@
         .video__desc {
             white-space: pre-line;
         }
-    } 
+    }
 }
 
 .video__inner.search {
